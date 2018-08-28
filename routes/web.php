@@ -20,5 +20,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/materi/category/add', 'CategoryController@store');
     Route::patch('/materi/category/{id}/edit', 'CategoryController@update');
     Route::get('/materi/category/{id}/delete', 'CategoryController@delete');
+
+    Route::get('/materi/category/{id}', 'MateriController@index');
 });
 

@@ -30,6 +30,6 @@ class HomeController extends Controller
         $data['sd'] = \App\Category::where('tingkat', 'sd')->get();
         $data['smp'] = \App\Category::where('tingkat', 'smp')->get();
         $data['sma'] = \App\Category::where('tingkat', 'sma')->get();
-        return view('materi.materi')->with($data);
+        return view('materi.kategori')->with($data);
     }
 }
