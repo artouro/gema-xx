@@ -15,6 +15,26 @@
               @include('templates.feedback')
             </div>
 
+            <!-- Modal -->
+            <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title custom-title custom-title-warning"><i class="fa fa-warning"></i> Peringatan!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Apa anda yakin ingin menghapus kategori <kbd id="kategoriModal"></kbd> tingkat <kbd id="tingkatModal"></kbd> ?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="modal-true-btn" data-location=""><i class="fa fa-trash"></i> Hapus</button>
+                    <button type="button" class="btn custom-secondary" data-dismiss="modal"><i class="fa fa-ban"></i> Batal</button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <!-- Add Category -->
             <div class="clearfix"></div>
             <div class="row">
@@ -55,7 +75,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                           <button id="btn--reset" class="btn btn-primary" type="reset"><i class="fa fa-refresh"></i> Reset</button>
+                           <button id="btn--reset" class="btn custom-secondary" type="reset"><i class="fa fa-refresh"></i> Reset</button>
                           <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> Save</button>
                         </div>
                       </div>
@@ -65,7 +85,6 @@
                 </div>
               </div>
             </div>
-    
             <!-- Category List -->
             <div class="clearfix"></div>
 
@@ -94,8 +113,8 @@
                                   <span><i class="fa fa-pencil"></i><br> <small>Edit</small></span>
                                 </div>
                               </div>
-                              <div class="col-lg-6 col-xs-6 category-box__manage__wrapper">
-                                <div class="category-box__manage__btn-delete box-link" data-location="{{ url('/materi/category/' . $row->id . '/delete') }}">
+                              <div class="col-lg-6 col-xs-6 category-box__manage__wrapper" data-toggle="modal" data-target="#deleteModal">
+                                <div class="category-box__manage__btn-delete box-delete" data-location="{{ url('/materi/category/' . $row->id . '/delete') }}">
                                   <span><i class="fa fa-trash"></i><br> <small>Delete</small></span>
                                 </div>
                               </div>
@@ -117,7 +136,12 @@
                                   <span><i class="fa fa-pencil"></i><br> <small>Edit</small></span>
                                 </div>
                               </div>
-                              <div class="col-lg-6 col-xs-6 category-box__manage__wrapper box-link" data-location="{{ url('/materi/category/' . $row->id . '/delete') }}"><div class="category-box__manage__btn-delete"><span><i class="fa fa-trash"></i><br> <small>Delete</small></span></div></div>
+                              <!-- <div class="col-lg-6 col-xs-6 category-box__manage__wrapper box-link" data-location="{{ url('/materi/category/' . $row->id . '/delete') }}"> -->
+                              <div class="col-lg-6 col-xs-6 category-box__manage__wrapper" data-toggle="modal" data-target="#deleteModal">
+                                <div class="category-box__manage__btn-delete box-delete" data-location="{{ url('/materi/category/' . $row->id . '/delete') }}">
+                                  <span><i class="fa fa-trash"></i><br> <small>Delete</small></span>
+                                </div>
+                              </div>
                             </div>
                           </li>
                         @endforeach
@@ -136,8 +160,8 @@
                                   <span><i class="fa fa-pencil"></i><br> <small>Edit</small></span>
                                 </div>
                               </div>
-                              <div class="col-lg-6 col-xs-6 category-box__manage__wrapper">
-                                <div class="category-box__manage__btn-delete box-link" data-location="{{ url('/materi/category/' . $row->id . '/delete') }}">
+                              <div class="col-lg-6 col-xs-6 category-box__manage__wrapper" data-toggle="modal" data-target="#deleteModal">
+                                <div class="category-box__manage__btn-delete box-delete" data-location="{{ url('/materi/category/' . $row->id . '/delete') }}">
                                   <span><i class="fa fa-trash"></i><br> <small>Delete</small></span>
                                 </div>
                               </div>
@@ -159,6 +183,7 @@
 @push('js')
   <script type='text/javascript'>
     $(function(){
+      //Passing all the values from the list to the form ..
       $('.box-edit').click(function(){
         $('#form_panel .x_content').slideDown();
         $('#input--kategori').val($(this).data('name'));
@@ -167,13 +192,28 @@
         $('#method_field').val('PATCH');
         $('#form_kategori').attr("action", "{{ url('/materi/category/' . $row->id . '/edit') }}");
         $('#form_title').html('Form Edit');
+        $('html, body').animate({scrollTop : $('html').offset().top}, 'slow');
       });
 
+      //Reset all attributes when button reset clicked ..
       $('#btn--reset').click(function(){
         $('#form_kategori').attr("action", "{{ url('/materi/category/add') }}");
         $('#form_title').html('Form Kategori');
         $('#method_field').val("");
         $('#input--id').val("");
+      });
+
+      //Passing data-location from category list delete button to modal delete button ..
+      $('.box-delete').click(function(){
+        $('#modal-true-btn').attr('data-location', $(this).data('location'));
+        $('#tingkatModal').html($(this).parent().siblings('.box-edit').data('level')); 
+        $('#kategoriModal').html($(this).parent().siblings('.box-edit').data('name')); 
+      });
+
+      //Deleting when modal delete button clicked ..
+      $('#modal-true-btn').click(function(){
+        window.location = $(this).data('location');
+        return false;
       });
     });
   </script>

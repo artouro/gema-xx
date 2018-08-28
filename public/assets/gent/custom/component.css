@@ -82,3 +82,19 @@ div[class*="category-box__manage__btn"]:hover {
 #form_title {
 	color:#73879C !important;
 }
+#tingkatModal {
+	text-transform: uppercase;
+}
+.custom-title {
+	color:#fff;
+	display:inline-block;
+	padding:6px 15px;
+	border-radius:3px;
+}
+.custom-title-warning {
+	background-color:#f0ad4e;
+}
+.custom-secondary {
+	color:#fefefe;
+	background-color:#999;
+}
