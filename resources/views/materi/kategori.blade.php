@@ -41,7 +41,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12" id="form_panel">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="glyphicon glyphicon-th"></i> <span id="form_title">Form Kategori</span><!-- <small>Form Kategori</small> --></h2>
+                    <h2><i class="glyphicon glyphicon-th"></i> <span id="form_title">Form Bidang Mata Lomba</span><!-- <small>Form Kategori</small> --></h2>
                     <ul class="nav navbar-right panel_toolbox panel_right">
                       <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
                     </ul>
@@ -92,7 +92,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Kategori<small></small></h2>
+                    <h2>Bidang Mata Lomba<small></small></h2>
                     <ul class="nav navbar-right panel_toolbox panel_right">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                       <li><a class="manage-link"><i class="fa fa-edit"></i></a></li>
@@ -101,7 +101,9 @@
                   </div>
                   <div class="x_content">
                     <br />
+                    @if($sd != "")
                     <h3>&nbsp;&nbsp;SD</h3>
+                    @endif
                     <div class="category-list"> 
                       <ul>
                         @foreach($sd as $row)
@@ -190,7 +192,7 @@
         $('#input--tingkat').val($(this).data('level'));
         $('#input--id').val($(this).data('id'));
         $('#method_field').val('PATCH');
-        $('#form_kategori').attr("action", "{{ url('/materi/category/' . $row->id . '/edit') }}");
+        $('#form_kategori').attr("action", "{{ url('/materi/category/' . @$row->id . '/edit') }}");
         $('#form_title').html('Form Edit');
         $('html, body').animate({scrollTop : $('html').offset().top}, 'slow');
       });
