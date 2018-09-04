@@ -1,6 +1,6 @@
 $(function(){
 	$('.manage-link').click(function(){
-		$('.category-box__manage').slideToggle();
+		$('.matalomba-box__manage').slideToggle();
 		$(this).children().toggleClass('fa-edit');
 		$(this).children().toggleClass('fa-minus-square');
 	});

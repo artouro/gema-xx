@@ -1,16 +1,16 @@
-.category-list ul {
+.matalomba-list ul {
 	padding-left: 3px !important;
 }
-.category-list ul li {
+.matalomba-list ul li {
 	list-style:none;
 	display:inline-block;
 	transition: .2s;
 	margin-right:-15px;
 }/*
-.category-list ul li:first-child {
+.matalomba-list ul li:first-child {
 	transform:translateY(-19px);
 }*/
-.category-box {
+.matalomba-box {
 	background-color:#f6f6f6;
 	padding:15px 30px;
 	height:80px;
@@ -19,52 +19,52 @@
 	cursor:pointer;
 	margin:0px 0px 5px;
 }
-.category-box:hover {
+.matalomba-box:hover {
 	background-color:#1ABB9C;
 	color:#fff;
 }
-.category-box span {
+.matalomba-box span {
 	position:absolute;
 	top:50%;
 	left:50%;
 	transform:translate(-50%, -50%);
 }
-.category-box__manage {
+.matalomba-box__manage {
 	text-align: center;
 	padding:0 10px;
 	display:none;
 	margin-bottom:25px;
 }
-.category-box__manage__wrapper {
+.matalomba-box__manage__wrapper {
 	cursor:pointer;
 	padding:0 !important;
 }
-div[class*="category-box__manage__btn"]{
+div[class*="matalomba-box__manage__btn"]{
 	height:50px;
 	background-color:#f0f0f0;
 }
-div[class*="category-box__manage__btn"]:hover {
+div[class*="matalomba-box__manage__btn"]:hover {
 	
 	color:#fff;
 }
-.category-box__manage__btn-edit span,
-.category-box__manage__btn-delete span {
+.matalomba-box__manage__btn-edit span,
+.matalomba-box__manage__btn-delete span {
 	position: absolute;
 	top:50%;
 	left:50%;
 	transform:translate(-50%, -50%);
 	line-height: 15px;
 }
-.category-box__manage__btn-edit:hover {
+.matalomba-box__manage__btn-edit:hover {
 	background-color:#F3A72E;
 }
-.category-box__manage__btn-edit {
+.matalomba-box__manage__btn-edit {
 	margin-right:2.5px;
 }
-.category-box__manage__btn-delete:hover {
+.matalomba-box__manage__btn-delete:hover {
 	background-color:#E96153;
 }
-.category-box__manage__btn-delete {
+.matalomba-box__manage__btn-delete {
 	margin-left:2.5px;
 }
 .panel_right > li {
@@ -76,7 +76,7 @@ div[class*="category-box__manage__btn"]:hover {
 .login_form, .registration_form {
 	padding:0 15px;
 }
-.category-list__manage {
+.matalomba-list__manage {
 	font-size:1.2em;
 }
 #form_title {

@@ -16,11 +16,14 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/', 'HomeController@index');
-    Route::get('/materi', 'HomeController@materi');
-    Route::post('/materi/category/add', 'CategoryController@store');
-    Route::patch('/materi/category/{id}/edit', 'CategoryController@update');
-    Route::get('/materi/category/{id}/delete', 'CategoryController@delete');
+    Route::get('/kematerian', 'HomeController@materi');
+    Route::post('/kematerian/add', 'MatalombaController@store');
+    Route::patch('/kematerian/edit/{id}', 'MatalombaController@update');
+    Route::get('/kematerian/delete/{id}', 'MatalombaController@delete');
 
-    Route::get('/materi/category/{id}', 'MateriController@index');
+    Route::get('/kematerian/{id}', 'MatalombaController@index');
+
+    Route::post('/kematerian/{id}/add', 'SoalController@store');
+
 });
 

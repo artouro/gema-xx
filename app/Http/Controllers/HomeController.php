@@ -27,10 +27,10 @@ class HomeController extends Controller
     }
 
     public function materi(){
-        $data['sd'] = \App\Category::where('tingkat', 'sd')->get();
-        $data['smp'] = \App\Category::where('tingkat', 'smp')->get();
-        $data['sma'] = \App\Category::where('tingkat', 'sma')->get();
+        $data['sd'] = \App\Matalomba::where('tingkat', 'sd')->get();
+        $data['smp'] = \App\Matalomba::where('tingkat', 'smp')->get();
+        $data['sma'] = \App\Matalomba::where('tingkat', 'sma')->get();
         
-        return view('materi.kategori')->with($data);
+        return view('materi.matalomba')->with($data);
     }
 }

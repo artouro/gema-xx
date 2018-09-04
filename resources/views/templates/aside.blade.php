@@ -23,9 +23,15 @@
     <!-- sidebar menu -->
     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
         <div class="menu_section">
-            <h3>General</h3>
+            <h3>Perlombaan</h3>
             <ul class="nav side-menu">
-                <li><a href="{{ url('/materi') }}"><i class="fa fa-archive"></i> Materi</span></a></li>
+                <li><a href="{{ url('/kematerian') }}"><i class="fa fa-archive"></i> Materi</span></a></li>
+            </ul>
+        </div>
+        <div class="menu_section">
+            <h3>Kepesertaan</h3>
+            <ul class="nav side-menu">
+                <li><a href="{{ url('/kepesertaan') }}"><i class="fa fa-user"></i> Akun Peserta</span></a></li>
             </ul>
         </div>
         <!-- <div class="menu_section">
