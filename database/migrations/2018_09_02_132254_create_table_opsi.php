@@ -14,9 +14,10 @@ class CreateTableOpsi extends Migration
     public function up()
     {
         Schema::create('t_opsi', function(Blueprint $table){
-            $table->increments('id_opsi');
-            $table->text('teks_opsi');
+            $table->increments('id_opsi', 10);
             $table->integer('id_soal')->unsigned();
+            $table->integer('opsi_ke');
+            $table->text('teks_opsi');
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class CreateTableUsers extends Migration
             $table->string('password', 255);
             $table->string('name');
             //1 = admin, 2 = panitia, 3 = peserta
-            $table->integer('level', 1);
+            $table->integer('level');
             $table->rememberToken();
             $table->timestamps();
         });

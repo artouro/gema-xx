@@ -17,7 +17,7 @@ class CreateTableSoal extends Migration
             $table->increments('id_soal');
             $table->integer('id_matalomba')->unsigned();
             $table->text('soal');
-            $table->text('gambar');
+            $table->string('gambar');
             $table->integer('jawaban_benar')->unsigned();
             $table->timestamps();
         });
