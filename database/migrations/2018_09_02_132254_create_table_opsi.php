@@ -19,6 +19,9 @@ class CreateTableOpsi extends Migration
             $table->integer('opsi_ke');
             $table->text('teks_opsi');
             $table->timestamps();
+            $table->foreign('id_soal')
+                  ->references('id_soal')->on('t_soal')
+                  ->onDelete('cascade');
         });
     }
 

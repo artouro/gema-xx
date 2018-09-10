@@ -17,9 +17,12 @@ class CreateTableSoal extends Migration
             $table->increments('id_soal');
             $table->integer('id_matalomba')->unsigned();
             $table->text('soal');
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->integer('jawaban_benar')->unsigned();
             $table->timestamps();
+            $table->foreign('id_matalomba')
+                  ->references('id_matalomba')
+                  ->on('t_matalomba')->onDelete('cascade');
         });
     }
 

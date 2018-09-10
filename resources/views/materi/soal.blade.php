@@ -26,7 +26,7 @@
               <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 col-lg-offset-1">
                 <div class="x_panel">
                   <div class="x_title">
-                    <b style="font-size:1.2em;">Draf Soal</b>
+                    <b style="font-size:1.2em;">Draf Soal {{ $check->nama_matalomba }}</b>
                   </div>
                   <hr>
                   <div class="x_content">
