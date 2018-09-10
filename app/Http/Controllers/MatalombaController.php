@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 class MatalombaController extends Controller
 {
 	public function index($id){
-		$data['result'] = \App\Matalomba::where('id_matalomba', $id)->first();
-    	if($data['result'] != "") return view('materi.soal')->with($data);
-    	else return redirect('/kematerian')->with('error', "Halaman tidak ditemukan.");
+		$data['check'] = \App\Matalomba::where('id_matalomba', $id)->first();
+		$data['result'] = \DB::table('t_soal')
+						  ->join('t_matalomba', 't_soal.id_matalomba', 't_matalomba.id_matalomba')
+						  ->select('t_matalomba.*', 't_soal.*')
+						  ->where('t_soal.id_matalomba', $id)
+						  ->get();
+    	if(!empty($data['check'])) return view('materi.soal')->with($data);
+    	else return redirect('/kematerian')->with('error', "Data tidak ditemukan.");
 	}
 
     public function store(Request $request){

@@ -24,6 +24,7 @@
     <link href="{{ asset('assets/gent') }}/build/css/custom.min.css" rel="stylesheet">
     <!-- Custom CSS -->    
     <link href="{{ asset('assets/gent') }}/custom/component.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,600,700,800,900|Montserrat:300" rel="stylesheet">
   </head>
 
   <body class="login">
@@ -36,8 +37,11 @@
           <section class="login_content">
             <img src="{{ asset('assets/gent/images/gema-med.png') }}" alt="" />
             <form name="formLogin" action="{{ url('login') }}" method="post">
-              <h1>Login</h1>
+              <h1>Sign In</h1>
               {{ csrf_field() }}
+              <div>
+                <!-- <p class="text-left">Your account is your portal to all competition things: your profiles, administration, competition, and more!</p> -->
+              </div>
               <div>
                 <input type="text" class="form-control" name="username" placeholder="Username" required="" />
               </div>
@@ -45,7 +49,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="javascript:{}" onClick="document.formLogin.submit(); return false;">Log in</a>
+                <a class="btn btn-primary submit" href="javascript:{}" onClick="document.formLogin.submit(); return false;">Sign in</a>
                 <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
               </div>
 
@@ -59,9 +63,9 @@
                 <div class="clearfix"></div>
                 <br />
 
-                <div>
+                <!-- <div>
                   <p>©2018 All Rights Reserved. Privacy and Terms</p>
-                </div>
+                </div> -->
               </div>
             </form>
           </section>

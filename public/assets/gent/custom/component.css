@@ -1,100 +1,158 @@
+/* vanseodesign.com/css/smacss-introduction
+* Base — These are your defaults (html, body, h1, ul, etc)
+* Layout — These divide the page into major sections
+* Module — These are the reusable modular components of a design
+* State — These describe how things look when in a particular state (hidden or expanded, active/inactive)
+* Theme — These define things like a color scheme or typographic treatment across a site
+*/
+
+html, body {
+	font-family: "Open Sans", "Raleway", sans-serif !important;
+}
 .matalomba-list ul {
 	padding-left: 3px !important;
 }
 .matalomba-list ul li {
-	list-style:none;
-	display:inline-block;
+	list-style: none;
+	display: inline-block;
 	transition: .2s;
-	margin-right:-15px;
-}/*
+	margin-right: -15px;
+}
+/*
 .matalomba-list ul li:first-child {
 	transform:translateY(-19px);
 }*/
+
 .matalomba-box {
-	background-color:#f6f6f6;
-	padding:15px 30px;
-	height:80px;
-	text-align:center;
+	background-color: #f6f6f6;
+	padding: 15px 30px;
+	height: 80px;
+	text-align: center;
 	position: relative;
-	cursor:pointer;
-	margin:0px 0px 5px;
+	cursor: pointer;
+	margin: 0px 0px 5px;
 }
 .matalomba-box:hover {
-	background-color:#1ABB9C;
-	color:#fff;
+	background-color: #1ABB9C;
+	color: #fff;
 }
 .matalomba-box span {
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .matalomba-box__manage {
 	text-align: center;
-	padding:0 10px;
-	display:none;
-	margin-bottom:25px;
+	padding: 0 10px;
+	display: none;
+	margin-bottom: 25px;
 }
 .matalomba-box__manage__wrapper {
-	cursor:pointer;
-	padding:0 !important;
+	cursor: pointer;
+	padding: 0 !important;
 }
-div[class*="matalomba-box__manage__btn"]{
-	height:50px;
-	background-color:#f0f0f0;
+div[class*="matalomba-box__manage__btn"] {
+	height: 50px;
+	background-color: #f0f0f0;
 }
 div[class*="matalomba-box__manage__btn"]:hover {
-	
-	color:#fff;
+	color: #fff;
 }
-.matalomba-box__manage__btn-edit span,
-.matalomba-box__manage__btn-delete span {
+.matalomba-box__manage__btn-edit span, .matalomba-box__manage__btn-delete span {
 	position: absolute;
-	top:50%;
-	left:50%;
-	transform:translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	line-height: 15px;
 }
 .matalomba-box__manage__btn-edit:hover {
-	background-color:#F3A72E;
+	background-color: #F3A72E;
 }
 .matalomba-box__manage__btn-edit {
-	margin-right:2.5px;
+	margin-right: 2.5px;
 }
 .matalomba-box__manage__btn-delete:hover {
-	background-color:#E96153;
+	background-color: #E96153;
 }
 .matalomba-box__manage__btn-delete {
-	margin-left:2.5px;
+	margin-left: 2.5px;
 }
-.panel_right > li {
-    float:right !important;;
+.panel_right>li {
+	float: right !important;
+	;
 }
-.panel_left > li {
-    float:left !important;
+.panel_left>li {
+	float: left !important;
 }
 .login_form, .registration_form {
-	padding:0 15px;
+	padding: 0 15px;
 }
 .matalomba-list__manage {
-	font-size:1.2em;
+	font-size: 1.2em;
 }
-#form_title {
-	color:#73879C !important;
+.form_title, .form_title span {
+	color: #49596A !important;
+}
+.right_col {
+	color: #49596A !important
+}
+.title_border_btm {
+	border-bottom: 1px dotted rgba(0, 0, 0, .2);
 }
 #tingkatModal {
 	text-transform: uppercase;
 }
 .custom-title {
-	color:#fff;
-	display:inline-block;
-	padding:6px 15px;
-	border-radius:3px;
+	color: #fff;
+	display: inline-block;
+	padding: 6px 15px;
+	border-radius: 3px;
 }
 .custom-title-warning {
-	background-color:#f0ad4e;
+	background-color: #f0ad4e;
 }
 .custom-secondary {
-	color:#fefefe;
-	background-color:#999;
+	color: #fefefe;
+	background-color: #999;
+}
+.btn {
+	text-transform: uppercase;
+	font-weight: 400;
+	letter-spacing: 1.5px;
+	font-size: 1.25rem !important;
+	padding: 1em;
+	border: none !important;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, .1);
+	transition: .2s;
+}
+.btn:hover {
+	text-decoration: none;
+	box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, .2);
+}
+.login_content a {
+	width: 100%;
+}
+.login_content a:hover {
+	text-decoration: none;
+}
+.x_accent {
+	width: 20px;
+	height: 20px;
+	background-color: #15C26B;
+	position: absolute;
+	left: -5px;
+	top: 15px;
+	display: block;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+}
+@media (max-width:480px) {
+	.form_title, .form_title span, .form_title i, .x_title, .x_title h2, .x_title i {
+		font-size: 12px !important;
+	}
+	.panel_toolbox > li > a {
+		padding:.5em .75em !important;
+	}
 }

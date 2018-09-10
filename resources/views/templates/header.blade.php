@@ -42,4 +42,6 @@
 
 <!-- Custom Theme Style -->
 <link href="{{ asset("assets/gent") }}/build/css/custom.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,600,700,800,900|Montserrat:300" rel="stylesheet">
+
 

@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h1 style="font-family:sans-serif;position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);">Restricted Page !</h1>
+    <h1 style="font-family:'Open Sans',sans-serif;font-weight:300;position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);">Restricted Page !</h1>
     <script type="text/javascript">
         setTimeout(() => {
            window.location.href="{{ url('/kematerian') }}"; 

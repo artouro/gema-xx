@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-        
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -38,10 +37,10 @@
             <!-- Add matalomba -->
             <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12" id="form_panel">
+              <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1" id="form_panel">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <h2><i class="glyphicon glyphicon-th"></i> <span id="form_title">Form Mata Lomba</span><!-- <small>Form matalomba</small> --></h2>
+                  <div class="x_title title_border_btm">
+                    <h2 class="form_title"><i class="glyphicon glyphicon-th"></i> <span>Form Mata Lomba</span></h2>
                     <ul class="nav navbar-right panel_toolbox panel_right">
                       <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
                     </ul>
@@ -80,7 +79,7 @@
                         </div>
                       </div>
                     </form>
-                  x</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,10 +87,10 @@
             <div class="clearfix"></div>
 
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Bidang Mata Lomba<small></small></h2>
+                  <div class="x_title title_border_btm">
+                    <h2 class="form_title">Bidang Mata Lomba<small></small></h2>
                     <ul class="nav navbar-right panel_toolbox panel_right">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                       <li><a class="manage-link"><i class="fa fa-edit"></i></a></li>
@@ -99,14 +98,13 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <br />
                     @if(count($sd) != 0)
                     <h3>&nbsp;&nbsp;SD</h3>
                     @endif
                     <div class="matalomba-list"> 
                       <ul>
                         @foreach($sd as $row)
-                          <li class="col-lg-2 col-sm-3 col-xs-6">
+                          <li class="col-lg-3 col-sm-3 col-xs-6">
                             <div class="matalomba-box box-link" data-location="{{ url('/kematerian/' . $row->id_matalomba) }}"><span>{{ $row->nama_matalomba }}</span></div>
                             <div class="matalomba-box__manage row">
                               <div class="col-lg-6 col-xs-6 matalomba-box__manage__wrapper box-edit" data-a="{{ $row->id_matalomba }}" data-b="{{ $row->nama_matalomba }}" data-c="{{ $row->tingkat }}">
@@ -131,7 +129,7 @@
                     <div class="matalomba-list"> 
                       <ul>
                         @foreach($smp as $row)
-                          <li class="col-lg-2 col-sm-3 col-xs-6">
+                          <li class="col-lg-3 col-sm-3 col-xs-6">
                             <div class="matalomba-box box-link" data-location="{{ url('/kematerian/' . $row->id_matalomba) }}"><span>{{ $row->nama_matalomba }}</span></div>
                             <div class="matalomba-box__manage row">
                               <div class="col-lg-6 col-xs-6 matalomba-box__manage__wrapper box-edit" data-a="{{ $row->id_matalomba }}" data-b="{{ $row->nama_matalomba }}" data-c="{{ $row->tingkat }}">
@@ -157,7 +155,7 @@
                     <div class="matalomba-list"> 
                       <ul>
                         @foreach($sma as $row)
-                          <li class="col-lg-2 col-sm-3 col-xs-6">
+                          <li class="col-lg-3 col-sm-3 col-xs-6">
                             <div class="matalomba-box box-link" data-location="{{ url('/kematerian/' . $row->id_matalomba) }}"><span>{{ $row->nama_matalomba }}</span></div>
                             <div class="matalomba-box__manage row">
                               <div class="col-lg-6 col-xs-6 matalomba-box__manage__wrapper box-edit" data-a="{{ $row->id_matalomba }}" data-b="{{ $row->nama_matalomba }}" data-c="{{ $row->tingkat }}">
@@ -179,7 +177,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <!-- /page content -->
@@ -212,8 +209,8 @@
       //Passing data-location from matalomba list delete button to modal delete button ..
       $('.box-delete').click(function(){
         $('#modal-true-btn').attr('data-location', $(this).data('location'));
-        $('#tingkatModal').html($(this).parent().siblings('.box-edit').data('level')); 
-        $('#matalombaModal').html($(this).parent().siblings('.box-edit').data('name')); 
+        $('#tingkatModal').html($(this).parent().siblings('.box-edit').data('c')); 
+        $('#matalombaModal').html($(this).parent().siblings('.box-edit').data('b')); 
       });
 
       //Deleting when modal delete button clicked ..

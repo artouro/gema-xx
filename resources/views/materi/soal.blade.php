@@ -6,7 +6,12 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>{{ strtoupper($result->tingkat) }} | {{ $result->nama_matalomba }}</h3>
+              <!-- <i class="fa fa-chevron-left"></i> -->
+                <a href="{{ url('/kematerian') }}" class="btn btn-info" > Back</a>
+              </div>
+              <div class="title_right text-right">
+              <!-- <i class="fa fa-plus"></i> -->
+              <a href="{{ url('/kematerian/'. $check->id_matalomba .'/add') }}" class="btn btn-danger"> Tambah Soal</a>
               </div>
             </div>
 
@@ -15,96 +20,55 @@
               @include('templates.feedback')
             </div>
 
-            <!-- Add matalomba -->
-            <div class="clearfix"></div>
+          <!-- End of Table Soal -->
+          <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12" id="form_panel">
+              <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 col-lg-offset-1">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="glyphicon glyphicon-th"></i> <span id="form_title">Form Soal {{ $result->nama_matalomba }} </span></h2>
-                    <ul class="nav navbar-right panel_toolbox panel_right">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                    </ul>
-                    <div class="clearfix"></div>
+                    <b style="font-size:1.2em;">Draf Soal</b>
                   </div>
-                  <div class="x_content" style="display:block;">
-                    <br />
-                    <form id="form_matalomba" method="post" action="{{ url('/kematerian/'. $result->id_matalomba .'/add') }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
-                      {{ csrf_field() }}
-                      <input id="method_field" type="hidden" name="_method" value="">
-                      <input type="hidden" name="id_matalomba" value="{{ $result->id_matalomba }}" id="input--id">
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Deskripsi Soal <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea id="input--soal" placeholder="Contoh : Siapakah nama ayah kandung Baden Powell ?" name="soal" required="required" class="form-control col-md-7 col-xs-12"></textarea>
+                  <hr>
+                  <div class="x_content">
+                  @if(count($result) != 0)
+                  <form>
+                    @php 
+                      $i = 1; 
+                      $alphabet = ['A', 'B', 'C', 'D', 'E'];
+                    @endphp
+                    @foreach($result as $row)
+                      @php
+                        $id_soal = $row->id_soal;
+                        $collection = \App\Opsi::where('id_soal', $id_soal)->get();
+                      @endphp
+                      @if($row->gambar != "")
+                      <img src="../../storage/app/public/upload/soal/{{ $row->gambar }}" style="width:300px; max-width:100%;"/><br><br>
+                      @endif
+                      <p>{{ $i }}. {{ $row->soal }}</p>
+                        <div class="form-check-inline">
+                          @foreach($collection as $opsi)
+                          <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="jawaban"> {{ $opsi->teks_opsi }}
+                          </label><br>
+                          @endforeach
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Gambar Soal</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="file" id="input--soal" placeholder="Contoh : Siapakah nama ayah kandung Baden Powell ?" name="gambar" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Opsi Jawaban 1 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="input--opsi1" placeholder="" name="opsi1" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Opsi Jawaban 2 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="input--opsi1" placeholder="" name="opsi2" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Opsi Jawaban 3 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="input--opsi1" placeholder="" name="opsi3" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Opsi Jawaban 4 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="input--opsi1" placeholder="" name="opsi4" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Opsi Jawaban 5 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="input--opsi1" placeholder="" name="opsi5" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jawaban Benar <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select id="input--jawaban_benar" name="jawaban_benar" required="required" class="form-control col-md-7 col-xs-12">
-                            <option value="">- Pilih Opsi Jawaban yang Benar -</option>
-                            <option value="1">Opsi 1</option>
-                            <option value="2">Opsi 2</option>
-                            <option value="3">Opsi 3</option>
-                            <option value="4">Opsi 4</option>
-                            <option value="5">Opsi 5</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                           <button id="btn--reset" class="btn custom-secondary" type="reset"><i class="fa fa-refresh"></i> Reset</button>
-                          <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> Save</button>
-                        </div>
-                      </div>
+                      Jawaban Benar : <u>{{ $collection[$row->jawaban_benar - 1]->teks_opsi }}</u>
+                      <br>
+                      <br>
+                      <a href="{{ url('/kematerian/' . $row->id_matalomba . '/edit/' . $row->id_soal) }}" class="btn btn-warning">Edit</a>
+                      <a href="{{ url('/kematerian/' . $row->id_matalomba . '/delete/' . $row->id_soal) }}" class="btn btn-danger">Delete</a>
+                      <hr>
+                      @php 
+                      $i++;
+                      @endphp
+                    @endforeach
                     </form>
-                  x</div>
+                    @else
+                    <div class="text-center" style="color:#b0b0b0">
+                     Data tidak ditemukan
+                    </div>
+                    @endif
+                  </div>
                 </div>
               </div>
             </div>

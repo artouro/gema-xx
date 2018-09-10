@@ -14,6 +14,6 @@
 				@include('templates.footer')
     		</div>
     	</div>
-    	@include('templates.scripts')
+        @include('templates.scripts')
     </body>
 </html>
