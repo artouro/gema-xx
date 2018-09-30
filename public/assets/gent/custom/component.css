@@ -8,6 +8,7 @@
 
 html, body {
 	font-family: "Open Sans", "Raleway", sans-serif !important;
+	height: 100%;
 }
 .matalomba-list ul {
 	padding-left: 3px !important;
@@ -116,43 +117,120 @@ div[class*="matalomba-box__manage__btn"]:hover {
 	color: #fefefe;
 	background-color: #999;
 }
-.btn {
+/*
+	//
+	// Customizing btn class
+	//
+*/
+.x_content__matalomba {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+}
+.btn, .btn2 {
 	text-transform: uppercase;
 	font-weight: 400;
 	letter-spacing: 1.5px;
 	font-size: 1.25rem !important;
-	padding: 1em;
 	border: none !important;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, .1);
 	transition: .2s;
+	border-radius: 4px;
 }
-.btn:hover {
+.btn {
+	padding: 1em;
+}
+.btn2 {
+	padding: 1em 2em;
+}
+.btn:hover, .btn2:hover {
 	text-decoration: none;
 	box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, .2);
 }
+/*	
+	//
+	// Login Form
+	//
+*/
 .login_content a {
 	width: 100%;
 }
 .login_content a:hover {
 	text-decoration: none;
 }
-.x_accent {
-	width: 20px;
-	height: 20px;
-	background-color: #15C26B;
+/*	//
+	// Panel '/kompetisi'
+	//
+*/
+
+.panel_matalomba:before {
+	content: '';
+	width: 4px;
+	height: 30px;
 	position: absolute;
-	left: -5px;
-	top: 15px;
-	display: block;
-	text-align: center;
-	color: #fff;
-	font-weight: bold;
+	left: -1.5px;
+	top: 50%;
+	transform:translateY(-50%);
 }
-@media (max-width:480px) {
+/*
+	//
+	// Panel:before colours classes
+	//
+*/
+.before--purple:before {
+	background-color: #3E0530;
+}
+.before--red:before {
+	background-color: #D63344;
+}
+.before--green:before {
+	background-color: limegreen;
+}
+.before--yellow:before {
+	background-color: #FFD026;
+}
+.before--blue:before {
+	background-color: #02B3E4;
+}
+.page-title_matalomba {
+	width: 100% !important;
+	margin-top: 1em;
+}
+.page-title > div[class*='col']{
+	padding: 0 !important;
+}
+.right_col {
+	padding-top: 8em !important;
+}
+/*
+	//
+	// Media Queries
+	//
+*/
+@media screen and (max-width:480px) {
 	.form_title, .form_title span, .form_title i, .x_title, .x_title h2, .x_title i {
 		font-size: 12px !important;
 	}
 	.panel_toolbox > li > a {
 		padding:.5em .75em !important;
+	}
+}
+@media screen and (max-width: 420px){
+	.btn2 {
+		padding: .8em 1em;
+		font-size: 1rem !important;
+	}
+	.x_content__matalomba {
+		font-size: 1.2rem;
+	}
+}
+@media screen and (max-width: 359px){
+	.panel_matalomba {
+		padding: 2em 0 2em 1em !important;
+		margin: 1.5em 0 !important;
+	}
+	.panel_matalomba {
+		text-align: center !important;
 	}
 }

@@ -11,6 +11,7 @@
     			
     			@yield('content')
 
+				<div class="clearfix"></div>
 				@include('templates.footer')
     		</div>
     	</div>

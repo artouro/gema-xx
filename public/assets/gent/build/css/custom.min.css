@@ -332,7 +332,7 @@
     min-height:100%;
 }
 body .container.body .right_col {
-    background: #fafbfc
+    background: #f2f2f2;
 }
 .nav-md .container.body .right_col {
     padding: 10px 20px 0;
@@ -799,7 +799,7 @@ a {
 footer {
     background: #fff;
     padding: 15px 20px;
-    display: block
+    display: block;
 }
 .nav-sm footer {
     margin-left: 70px
@@ -934,16 +934,17 @@ h2 {
     width: 100%;
     padding: 1.5em 2em;
     margin-top: 10px;
+    margin-bottom: 25px;
     display: inline-block;
     background: #fff;
     /* border: 1px solid #E6E9ED; */
     border-radius: 6px;
-    box-shadow: 10px 10px 25px 0 rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, .2);
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
     opacity: 1;
-    transition: all .2s ease
+    transition: all .2s ease;
 }
 .x_panel:hover {
     box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);

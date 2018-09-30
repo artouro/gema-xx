@@ -33,4 +33,17 @@ class HomeController extends Controller
         
         return view('materi.matalomba')->with($data);
     }
+    public function get_data(){
+        return response()->json([
+            'date' => '25 September 2018',
+            'event' => 'Programming' 
+        ]);
+    }
+
+    public function post_data(Request $request){
+        return response()->json([
+            'status' => 'success',
+            'msg' => "<br>" . $request->msgData
+        ]);
+    }
 }

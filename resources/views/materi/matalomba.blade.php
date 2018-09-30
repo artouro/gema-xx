@@ -3,11 +3,11 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            <div class="page-title">
+            <!-- <div class="page-title">
               <div class="title_left">
                 <h3></h3>
               </div>
-            </div>
+            </div> -->
             
             <div class="clearfix"></div>
             <div class="row">
@@ -34,13 +34,14 @@
                 </div>
               </div>
             </div>
+            @if(\Auth::user()->level == 1)
             <!-- Add matalomba -->
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1" id="form_panel">
                 <div class="x_panel">
                   <div class="x_title title_border_btm">
-                    <h2 class="form_title"><i class="glyphicon glyphicon-th"></i> <span>Form Mata Lomba</span></h2>
+                    <h2 class="form_title"><span>Form Mata Lomba</span></h2>
                     <ul class="nav navbar-right panel_toolbox panel_right">
                       <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
                     </ul>
@@ -83,9 +84,9 @@
                 </div>
               </div>
             </div>
+            @endif
             <!-- Matalomba List -->
             <div class="clearfix"></div>
-
             <div class="row">
               <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1">
                 <div class="x_panel">

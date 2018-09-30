@@ -13,6 +13,7 @@ class MatalombaController extends Controller
 						  ->select('t_matalomba.*', 't_soal.*')
 						  ->where('t_soal.id_matalomba', $id)
 						  ->get();
+		$data['collection'] = \App\Opsi::where('id_soal', $id)->get();
     	if(!empty($data['check'])) return view('materi.soal')->with($data);
     	else return redirect('/kematerian')->with('error', "Data tidak ditemukan.");
 	}

@@ -13,7 +13,7 @@
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>{{ Auth::user()->name }}</h2>
+                <h2>{{ Auth::user()->nama_lengkap }}</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
@@ -25,7 +25,11 @@
             <div class="menu_section">
                 <h3>Perlombaan</h3>
                 <ul class="nav side-menu">
-                    <li><a href="{{ url('/kematerian') }}"><i class="fa fa-archive"></i> Materi</a></li>
+                    @if(Auth::user()->level == 1)
+                        <li><a href="{{ url('/kematerian') }}"><i class="fa fa-archive"></i> Materi</a></li>
+                    @endif
+                    <li><a href="{{ url('/kompetisi') }}"><i class="fa fa-flag"></i> Kompetisi</a></li>
+                    <li><a href="{{ url('/rekapitulasi') }}"><i class="fa fa-book"></i> Rekapitulasi</a></li>
                 </ul>
             </div>
             <div class="menu_section">

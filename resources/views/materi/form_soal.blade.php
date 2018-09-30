@@ -6,20 +6,21 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            <div class="page-title">
+            <div class="clearfix"></div>
+                <div class="row">
+                  @include('templates.feedback')
+            </div>
+            <div class="page-title col-lg-10 col-md-12 col-lg-offset-1">
               <div class="title_left">
                 <a href="{{ url('/kematerian/' . $result->id_matalomba . '') }}" class="btn btn-info"> Back</a>
               </div>
             </div>
 
-            <div class="clearfix"></div>
-            <div class="row">
-              @include('templates.feedback')
-            </div>
+            
             <!-- Add matalomba -->
             <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12" id="form_panel">
+              <div class="col-lg-10 col-md-12 col-lg-offset-1" id="form_panel">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2 class="form_title"><i class="glyphicon glyphicon-th"></i> <span id="form_title">Form Soal {{ $result->nama_matalomba }} </span></h2>

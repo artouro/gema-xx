@@ -14,15 +14,9 @@ class CreateTablePengerjaan extends Migration
     public function up()
     {
         Schema::create('t_pengerjaan', function(Blueprint $table){
-            $table->increments('id_pengerjaan');
             $table->string('username');
-            $table->integer('id_matalomba');
-
-            //['a', 'c', 'd', 'e', ...], index = nomor, value = jawaban
-            $table->string('jawaban_peserta'); 
-            $table->integer('benar');
-            $table->integer('salah');
-            $table->integer('nilai');
+            $table->integer('id_soal');
+            $table->string('jawaban_peserta');
             $table->timestamps();
         });
     }

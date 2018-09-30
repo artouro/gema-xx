@@ -4,21 +4,23 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            <div class="page-title">
-              <div class="title_left">
+          <div class="clearfix"></div>
+            <div class="row">
+              @include('templates.feedback')
+              </div>
+            </div>
+            <div class="page-title" style="height:auto;">
+              <div class="col-lg-5 col-xs-6 col-lg-offset-1 text-left">
               <!-- <i class="fa fa-chevron-left"></i> -->
                 <a href="{{ url('/kematerian') }}" class="btn btn-info" > Back</a>
               </div>
-              <div class="title_right text-right">
+              <div class="col-lg-5 col-xs-6 text-right">
               <!-- <i class="fa fa-plus"></i> -->
               <a href="{{ url('/kematerian/'. $check->id_matalomba .'/add') }}" class="btn btn-danger"> Tambah Soal</a>
               </div>
             </div>
 
-            <div class="clearfix"></div>
-            <div class="row">
-              @include('templates.feedback')
-            </div>
+            
 
           <!-- End of Table Soal -->
           <div class="clearfix"></div>
